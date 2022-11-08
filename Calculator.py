@@ -15,7 +15,7 @@ finish = colorama.Style.RESET_ALL
 dim = colorama.Style.DIM
 bright = colorama.Style.BRIGHT
 
-os.system('clear')
+os.system('cls')
 print(f'{yellow}Choose between the following: {finish}\n')
 
 
@@ -26,7 +26,7 @@ def maths():
             '\t\t\t5.Circumference\t\t\t6.Square Root\n7.Cube Root\t\t\t\t8.Log\t\t\t\t\t9.Exponent\n10.Addition'
             f'\t\t\t\t11.Subtraction\t\t\t12.Multiplication\n13.Division\t\t\t\t14.Sin\t\t\t\t\t15.Cos\n16.Tan\t\t\t\t\t17.Notdefined\t\t\t18.Exit{finish}' + f'{blue}{bright}\n----> {finish}'))
     except:
-        os.system('clear')
+        os.system('cls')
         exit()
 
     if user_input == '1':
@@ -34,51 +34,51 @@ def maths():
         f = float(input('\nNumber of Carbon atoms: '))
         g = float(input('Number of Hydrogen atoms: '))
         h = ((f * 12.01) + (g * 1.01))
-        print(f"\nThe Molecular Weight is:{bright}{light_cyan} %.3f" % h, end=f"{finish}\n")
+        print(f"\nThe Molecular Weight is:{bright}{light_cyan} %.3f" % h, end=f"{finish}")
 
     elif user_input == '2':
         print('What is the mass and velocity of the particle?')
         q = float(input('\nMass: '))
         w = float(input('Velocity: '))
         s = (1 / 2 * q * w * w)
-        print(f'\nThe Kinetic energy resolved is:{bright}{light_cyan} %.1f' % s, end=f"{finish}\n")
+        print(f'\nThe Kinetic energy resolved is:{bright}{light_cyan} %.1f' % s, end=f"{finish}")
 
     elif user_input == '3':
         print('Write down the Temperatures: ')
         t1 = float(input('\nT1: '))
         t2 = float(input('T2: '))
         t = (1 - (t1 / t2))
-        print(f'\nThe Efficiency of the heat engine is:{bright}{light_cyan} %.2f' % t, end=f"{finish}\n")
+        print(f'\nThe Efficiency of the heat engine is:{bright}{light_cyan} %.2f' % t, end=f"{finish}")
 
     elif user_input == '4':
         print('\nInput the lengths of the shorter triangle sides:\n')
         a = float(input('A: '))
         b = float(input('B: '))
         c = hypot(a, b)
-        print(f"\nThe Length of the Hypotenuse is:{bright}{light_cyan} %.2f" % c, end=f"{finish}\n")
+        print(f"\nThe Length of the Hypotenuse is:{bright}{light_cyan} %.2f" % c, end=f"{finish}")
 
     elif user_input == '5':
         Pi = 3.14
         r = float(input('Enter the radius of the circle: '))
         Area = Pi * r * r
-        print(f'\nCircumference of the circle is Defined by:{bright}{light_cyan} %.1f' % Area, end=f"{finish}\n")
+        print(f'\nCircumference of the circle is Defined by:{bright}{light_cyan} %.1f' % Area, end=f"{finish}")
 
 
     elif user_input == '6':
         num1 = float(input('Input the number you want the Square root of: '))
         num = sqrt(num1)
-        print(f'\nThe Square Root of the given number is:{bright}{light_cyan} %.3f' % num, end=f"{finish}\n")
+        print(f'\nThe Square Root of the given number is:{bright}{light_cyan} %.3f' % num, end=f"{finish}")
 
     elif user_input == '7':
         x = float(input("Input the number you want the cube root of: "))
         y = x ** (1 / 3)
-        print(f"\nThe Cube Root of the Desired number is:{bright}{light_cyan} %.2f" % y, end=f"{finish}\n")
+        print(f"\nThe Cube Root of the Desired number is:{bright}{light_cyan} %.2f" % y, end=f"{finish}")
 
     elif user_input == '8':
         x = float(input('---Logarithmic calculator---\n\tx : '))
         y = float(input('\tBase: '))
         z = log(x, y)
-        print(f"The Logarithmic form is:{bright}{light_cyan} %.2f" % z, end=f"{finish}\n")
+        print(f"The Logarithmic form is:{bright}{light_cyan} %.2f" % z, end=f"{finish}")
 
     elif user_input == '9':
         iterations = int(input("How many iterations? = "))  # asks the user how long does he wants the list to be
@@ -92,7 +92,7 @@ def maths():
             print("The Result is :", answers, "\n")
             create_alist.append(answers)
         for i in create_alist:
-            print(f"{bright}{light_cyan}[{i}]", end=f"{finish}")  # finally, the answers are printed line by line
+            print(f"{bright}{light_cyan}[{i}]", end=f"{finish} ")  # finally, the answers are printed line by line
         print()
 
     elif user_input == '10':
@@ -100,36 +100,36 @@ def maths():
         p = float(input('\nA: '))
         q = float(input('B: '))
         r = (p + q)
-        print(f'\nThe Sum of the Given numbers is:{bright}{light_cyan} %.0f' % r, end=f"{finish}\n")
+        print(f'\nThe Sum of the Given numbers is:{bright}{light_cyan} %.0f' % r, end=f"{finish}")
 
     elif user_input == '11':
         print('Enter the Values you want the differnce of: ')
         e = float(input('\nA: '))
         f = float(input('B: '))
         g = (e - f)
-        print(f'\nThe Difference between the given numbers is:{bright}{light_cyan} %.2f' % g, end=f"{finish}\n")
+        print(f'\nThe Difference between the given numbers is:{bright}{light_cyan} %.2f' % g, end=f"{finish}")
 
     elif user_input == '12':
         print('Enter the numbers you want the product of:')
         j = float(input('\nA: '))
         k = float(input('B: '))
         i = (j * k)
-        print(f'\nThe product of the numbers is:{bright}{light_cyan} %.2f' % i, end=f"{finish}\n")
+        print(f'\nThe product of the numbers is:{bright}{light_cyan} %.2f' % i, end=f"{finish}")
 
     elif user_input == '13':
         try:
             x = float(input('Enter the numbers you want to divide:\nA: '))
             y = float(input('B: '))
             z = (x / y)
-            print(f'\nThe division is:{bright}{light_cyan} %.2f' % z, end=f"{finish}\n")
+            print(f'\nThe division is:{bright}{light_cyan} %.2f' % z, end=f"{finish}")
         except ZeroDivisionError:
-            print(f'\n{bright}You fool!\nCant divide by zero', end=f"{finish}\n")
+            print(f'\n{bright}You fool!\nCant divide by zero', end=f"{finish}")
 
     elif user_input == '14':
         print('\nWhat is the angle of sine? \n')
         x = float(input("θ° = "))
         y = sin(x)
-        print(f"\nThe value of{bright}{light_cyan} Sin", int(x), "=", y, end=f"{finish}\n")
+        print(f"\nThe value of{bright}{light_cyan} Sin", int(x), "=", y, end=f"{finish}")
 
     elif user_input == '15':
         print('\nWhat is the angle of cosecant? ')
@@ -141,7 +141,7 @@ def maths():
         print('\nWhats the angle of tan? \n')
         x = float(input("θ° = "))
         y = tan(x)
-        print(f"\nThe value of{bright}{light_cyan} Tan", int(x), "=", y, end=f"{finish}\n")
+        print(f"\nThe value of{bright}{light_cyan} Tan", int(x), "=", y, end=f"{finish}")
 
     elif user_input == '17':
         try:
@@ -152,25 +152,26 @@ def maths():
             for elements in range(num):
                 if elements % init1 == 0 or elements % init2 == 0:
                     x += elements
-            print(f"{bright}{light_cyan}Result = ", x, end=f"{finish}\n")
+            print(f"{bright}{light_cyan}Result = ", x, end=f"{finish}")
         except:
             print('\nYou caused an error, dammit!\n')
 
     elif user_input == '18':
+        print("!!!THANK YOU!!!")
         exit()
 
     else:
         time.sleep(0.2)
-        os.system("clear")
-        print(f"{red}{dim}Unrecognized Input!{finish}\n")
+        os.system("cls")
+        print(f"{red}{dim}Unrecognized Input!{finish}")
 
 
 def loop_function():
     while True:
         maths()
         time.sleep(0.2)
-        user_input = str(input(f'{blue}{dim}\nDo you want to continue with further operations? (Y/N): {finish}'))
-        os.system("clear")
+        user_input = str(input(f'{blue}{dim}\n\nDo you want to continue with further operations? (Y/N): {finish}'))
+
         if user_input == "y" or user_input == "Y" or user_input == "yes" or user_input == "YES" or user_input == "Yes":
             print()
             continue
