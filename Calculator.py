@@ -1,6 +1,5 @@
 from math import hypot, sin, cos, tan, log, sqrt  # My first ever program, created in python!
 import time
-import os
 import colorama
 
 cyan = colorama.Fore.CYAN
@@ -15,7 +14,6 @@ finish = colorama.Style.RESET_ALL
 dim = colorama.Style.DIM
 bright = colorama.Style.BRIGHT
 
-os.system('cls')
 print(f'{yellow}Choose between the following: {finish}\n')
 
 
@@ -26,7 +24,6 @@ def maths():
             '\t\t\t5.Circumference\t\t\t6.Square Root\n7.Cube Root\t\t\t\t8.Log\t\t\t\t\t9.Exponent\n10.Addition'
             f'\t\t\t\t11.Subtraction\t\t\t12.Multiplication\n13.Division\t\t\t\t14.Sin\t\t\t\t\t15.Cos\n16.Tan\t\t\t\t\t17.Notdefined\t\t\t18.Exit{finish}' + f'{blue}{bright}\n----> {finish}'))
     except:
-        os.system('cls')
         exit()
 
     if user_input == '1':
@@ -162,7 +159,6 @@ def maths():
 
     else:
         time.sleep(0.2)
-        os.system("cls")
         print(f"{red}{dim}Unrecognized Input!{finish}")
 
 
