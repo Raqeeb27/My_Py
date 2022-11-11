@@ -166,12 +166,12 @@ def loop_function():
     while True:
         maths()
         time.sleep(0.2)
-        user_input = str(input(f'{blue}{dim}\n\nDo you want to continue with further operations? (Y/N): {finish}'))
+        user_input = input(f'{blue}{dim}\n\nDo you want to continue with further operations? (Y/N): {finish}').title()
 
-        if user_input == "y" or user_input == "Y" or user_input == "yes" or user_input == "YES" or user_input == "Yes":
+        if user_input == "Y" or user_input == "YES" or user_input == "Yes":
             print()
             continue
-        elif user_input == "no" or user_input == "NO" or user_input == "No" or user_input == "N" or user_input == "n":
+        elif user_input == "NO" or user_input == "No" or user_input == "N" :
             print(f"{red}{dim}Breaking...\nHave a nice day!{finish}")
             break
         else:

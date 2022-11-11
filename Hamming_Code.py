@@ -43,7 +43,7 @@ for i in range(len(orig_frame)):
             break
 
 sleep(0.4)
-eve_odd = input(f"{yellow}\nUsing ODD Parity or EVEN Parity(O/E): {reset}")
+eve_odd = input(f"{yellow}\nUsing ODD Parity or EVEN Parity(O/E): {reset}").upper()
 print()
 error = 0
 for i in range(1, 5):
@@ -69,10 +69,10 @@ for i in range(1, 5):
             frame.append(orig_frame[i])
         i = 8
     frame = "".join(frame)
-    if eve_odd == "o" or eve_odd == "O" or eve_odd == "0" or eve_odd == "odd" or eve_odd == "ODD" or eve_odd == "Odd":
+    if eve_odd == "O" or eve_odd == "0" or eve_odd == "ODD":
         if frame.count("1") % 2 == 0:
             error = parity_correct(i,0)
-    elif eve_odd == "e" or eve_odd == "E" or eve_odd == "EVEN" or eve_odd == "Even" or eve_odd == "even":
+    elif eve_odd == "E" or eve_odd == "EVEN":
         if frame.count("1") % 2 != 0:
             error = parity_correct(i,0)
     else:
