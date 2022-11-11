@@ -82,7 +82,7 @@ for i in range(1, 5):
 sleep(0.4)
 if error == 0:
     print(
-        f"{bright}{lcyan}The entered Frame ---{orig_frame}--- has no error with the given parity \'{eve_odd}\'{reset}")
+        f"{bright}{lcyan}The entered Frame ---{orig_frame[::-1]}--- has no error with the given parity \'{eve_odd}\'{reset}")
     exit()
 
 print(f"\n{lblue}Corrected Parity Bits: {parity_bits}{reset}")
