@@ -1,1 +1,4 @@
-back this tab(0.2)
+from pyautogui import *
+
+
+key = input()

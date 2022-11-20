@@ -1,4 +1,4 @@
-while True:
+-while True:
     terms = int(input("\nEnter no.of terms in fibonacci sequence: "))
     seq = []
     n1, n2 = 0, 1

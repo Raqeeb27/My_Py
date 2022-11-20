@@ -1,10 +1,8 @@
 class a:
     def __init__(self):
         print("Class A constructor")
-
     def display(self):
         print("class A display")
-
 class b(a):
     def __init__(self):
         print("Class B constructor")
@@ -12,17 +10,15 @@ class b(a):
 
     def display(self):
         print("class B display")
-
+        super().display()
 
 class c(b):
     def __init__(self):
         print("Class C constructor")
         super().__init__()
-
     def display(self):
         print("class C display")
         super(c,self).display()
-
 a1 = a()
 b1 = b()
 c1 = c()

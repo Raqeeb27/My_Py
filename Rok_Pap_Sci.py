@@ -14,11 +14,11 @@ while True:
     print()
 
     if user_input == "R":
-        user_input = user_input.replace("R", "Rock")
+        user_input = "Rock"
     elif user_input == "P":
-        user_input = user_input.replace("P", "Paper")
+        user_input = "Paper"
     elif user_input == "S":
-        user_input = user_input.replace("S", "Scissors")
+        user_input = "Scissors"
 
     ran_value = choice(["Rock", "Paper", "Scissors"])
 
@@ -29,7 +29,7 @@ while True:
         print(
             f"{lgreen}Player-1 selected: {lmagenta}{user_input}\n{lgreen}Player-2 selected: {lmagenta}{ran_value}\n\n{bright}{lyellow}|||It's a Draw||| 😕{reset}")
 
-    elif ran_value == "Paper" or ran_value == "Rock" or ran_value == "Scissors":
+    else:
         if ran_value == "Rock":
             if user_input == "Paper":
                 print(
@@ -54,11 +54,11 @@ while True:
                 print(
                     f"{lgreen}Player-1 selected: {lmagenta}{user_input}\n{lgreen}Player-2 selected: {lmagenta}{ran_value}\n{lred}   Scissors ----→ Paper{bright}{lyellow}\n\n|||You Lose|||{lred} 😭\nBetter Luck Next time{reset}")
     sleep(0.5)
-    play = input(f"{yellow}{dim}\nDo you want to play again (Y/N): ").title()
-    if play == "Y" or play == "YES" or play == "Yes":
+    play = input(f"{yellow}{dim}\nDo you want to play again (Y/N): ").upper()
+    if play == "Y" or play == "YES" :
         print()
         continue
-    elif play == "NO" or play == "No" or play == "N":
+    elif play == "NO" or play == "N":
         print(f"{magenta}!!!Game Over!!!\nHOPE YOU Enjoyed😇{reset}")
         break
     else:
