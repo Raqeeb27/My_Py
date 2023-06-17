@@ -1,5 +1,7 @@
 from math import hypot, sin, cos, tan, log, sqrt                  # My first ever program, created in python!
 import time
+import os
+import platform
 from colorama import Fore, Style
 
 cyan, light_cyan = Fore.CYAN, Fore.LIGHTCYAN_EX
@@ -10,9 +12,18 @@ yellow = Fore.YELLOW
 dim, bright = Style.DIM, Style.BRIGHT
 reset = Style.RESET_ALL
 
-print(f'{yellow}{bright}\nChoose between the following: {reset}\n')
+
+my_os = platform.system()
+if my_os == "Windows":
+    clear_Command = 'cls'
+    os.system(clear_Command)
+elif my_os == "Linux" or "Darwin":
+    clear_Command = 'clear'
+    os.system(clear_Command)    
 
 def calcultor(): 
+    print(f'{yellow}{bright}Choose between the following: {reset}\n')
+
     user_input = input(
         f'{cyan}1. Molecular weight\t\t2. Kinetic energy\t\t3. Heat engine(Efficiency)\n4. Hypotenuse'
         '\t\t\t5. Circumference\t\t6. Square Root\n7. Cube Root\t\t\t8. Logarithm\t\t\t9. Exponent\n10. Addition'
@@ -228,7 +239,7 @@ def loop_function():
         user_input = input(f'{blue}\n\nDo you want to continue with further operations? (Y/N): {reset}').upper()
 
         if user_input == "Y" or user_input == "YES":
-            print()
+            os.system(clear_Command)
             continue
         elif user_input == "N" or user_input == "NO" :
             print(f"{red}Breaking...\nHave a nice day!{reset}")
