@@ -21,7 +21,9 @@ elif my_os == "Linux" or "Darwin":
     clear_Command = 'clear'
     os.system(clear_Command)    
 
+
 def calcultor(): 
+
     print(f'{yellow}{bright}Choose between the following: {reset}\n')
 
     user_input = input(
@@ -224,7 +226,7 @@ def calcultor():
             print('\nYou caused an error, dammit!\n')
 
     elif user_input == '18':
-        print("!!!THANK YOU!!!")
+        print(f"{bright}{yellow}!!!THANK YOU!!!{reset}")
         exit()
 
     else:
