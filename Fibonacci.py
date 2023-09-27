@@ -1,12 +1,11 @@
 while True:
+    sequence = []
+    n1, n2 = 0, 1
     try:
         terms = int(input("\nEnter desired number of terms of Fibonacci sequence: "))
     except ValueError:
         print("\nInvalid Input\nPlease enter Positive Integer\n")
         continue
-
-    seq = []
-    n1, n2 = 0, 1
 
     if terms <= 0:
         print("\nPlease enter Positive Integer")
@@ -15,21 +14,21 @@ while True:
     else:
         print(f"\nThe Fibonacci sequence upto {terms} terms is:")
         for i in range(terms):
-            seq.append(n1)
+            sequence.append(n1)
             n = n1 + n2
             n1 = n2
             n2 = n
-        print(seq)
+        print(sequence)
 
-    ch = input("\nDo you want to continue:(Y/N): ").upper()
+    choice = input("\nDo you want to continue:(Y/N): ").upper()
 
-    if ch == "Y" or ch == "YES" :
+    if choice in ["YES","Y"] :
         print()
         continue
-    elif ch == "N" or ch == "NO" :
+    elif choice in ["NO","N"] :
         break
     else:
         print("Invalid Input\n")
-        exit(0)
+        exit()
 
 print("THANK YOU!!")

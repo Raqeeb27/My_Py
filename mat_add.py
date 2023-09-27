@@ -1,6 +1,6 @@
-from time import *
+from time import sleep
 
-print("ADDITION OF MATRICES")
+print("\n---- ADDITION OF MATRICES ----\n")
 
 sleep(0.5)
 
@@ -14,8 +14,6 @@ while len(a) != len(b) and len(a) > len(b):
 
 sleep(0.5)
 
-print("ln(a)=", len(a), "len(b)=", len(b))
-
 c = []
 
 for i in range(len(a)):
@@ -23,4 +21,4 @@ for i in range(len(a)):
 
 sleep(0.5)
 
-print("The Sum of Matrix A and Matrix B is :", c)
+print("\nThe Sum of Matrix A and Matrix B is :", c,'\n')

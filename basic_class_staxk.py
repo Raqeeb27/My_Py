@@ -19,6 +19,7 @@ class Stack:
         return print(len(self.elements))
 
 stack = Stack()
+
 stack.push(5)
 stack.push(6)
 stack.is_empty()

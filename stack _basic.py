@@ -7,7 +7,7 @@ def create_stack():
 def check_empty():
     return len(stack) == 0
 
-def push(stack,elements):
+def push(stack, elements):
     stack.append(elements)
 
 def pop(stack):
@@ -22,12 +22,12 @@ while True:
     element = input("Enter Element to PUSH into Stack: ")
     if element == "":
         break
-    push(stack,element)
+    push(stack, element)
 print(stack)
 while True:
     sleep(0.5)
-    x = input("Do you want to pop an element(Y/N): ")
-    if x == 'y':
+    x = input("Do you want to pop an element(Y/N): ").upper()
+    if x in ['Y','YES']:
         pop(stack)
         print("Stack after Popping an Element is : ",stack)
     else:

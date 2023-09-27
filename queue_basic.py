@@ -24,8 +24,8 @@ def dequeue():
             sleep(0.5)
             print(queue)
             sleep(0.5)
-            proceed = input("Do you want to Dequeue further(Y/N): ")
-            if proceed == 'y':
+            proceed = input("Do you want to Dequeue further(Y/N): ").upper()
+            if proceed in ['Y','YES']:
                 continue
             else:
                 break
@@ -37,7 +37,7 @@ def display():
 def quit():
     sleep(0.5)
     print("\nTHANK YOU")
-    sleep(1)
+    sleep(0.5)
 
 def final_display():
     print("\nFinal Queue: ",queue)
@@ -58,8 +58,8 @@ while True:
     else:
         print("Invalid Operation")
     sleep(0.5)
-    proceed = input("\nDo you want to proceed further operations(Y/N): ")
-    if proceed == 'y' :
+    proceed = input("\nDo you want to proceed further operations(Y/N): ").upper()
+    if proceed in ['Y','YES'] :
         continue
     else:
         sleep(0.5)

@@ -69,10 +69,10 @@ for i in range(1, 5):
             frame.append(orig_frame[i])
         i = 8
     frame = "".join(frame)
-    if eve_odd == "O" or eve_odd == "0" or eve_odd == "ODD":
+    if eve_odd in ["ODD","O","0"]:
         if frame.count("1") % 2 == 0:
             error = parity_correct(i,0)
-    elif eve_odd == "E" or eve_odd == "EVEN":
+    elif eve_odd in ["EVEN","E"]:
         if frame.count("1") % 2 != 0:
             error = parity_correct(i,0)
     else:

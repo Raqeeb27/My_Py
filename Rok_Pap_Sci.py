@@ -55,12 +55,12 @@ while True:
                     f"{lgreen}Player-1 selected: {lmagenta}{user_input}\n{lgreen}Player-2 selected: {lmagenta}{ran_value}\n{lred}   Scissors ----→ Paper{bright}{lyellow}\n\n|||You Lose|||{lred} 😭\nBetter Luck Next time{reset}")
     sleep(0.5)
     play = input(f"{yellow}{dim}\nDo you want to play again (Y/N): ").upper()
-    if play == "Y" or play == "YES" :
+    if play in ["YES","Y"] :
         print()
         continue
-    elif play == "NO" or play == "N":
-        print(f"{magenta}!!!Game Over!!!\nHOPE YOU Enjoyed😇{reset}")
+    elif play in ["NO","N"]:
+        print(f"{magenta}!!!Game Over!!!\nHOPE YOU Enjoyed😇{reset}\n")
         break
     else:
-        print(f"{lred}Unrecognised Input\n!!!Game Over!!!{reset}")
+        print(f"{lred}Unrecognised Input\n!!!Game Over!!!{reset}\n")
         break

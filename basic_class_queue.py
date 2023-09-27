@@ -4,11 +4,11 @@ class Queue:
 
     def enque(self):
         while True:
-            x = input("Enter element to enqueue: ")
-            if x == "":
+            element = int(input("Enter element to enqueue: "))
+            if element == "":
                 break
-            self.queue.append(int(x))
-            print("Element enqueued is: ", x)
+            self.queue.append(element)
+            print("Element enqueued is: ", element)
 
     def dequeue(self):
         if not self.queue:
@@ -43,6 +43,7 @@ class Queue:
 
 
 queue = Queue()
+
 queue.enque()
 queue.show()
 queue.size()
