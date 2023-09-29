@@ -30,15 +30,16 @@ def load_key():
 # Create Account Function
 
 def create_acc():
-    user_name = input("\nUsername : ")
+    # Username with no leading and trailing white spaces
+    user_name = input("\nUsername : ").rstrip().lstrip()
 
     # Checking username characters length
     if user_name == '' :
         print('Username required !!!')
         return
         
-    elif len(user_name) > 15:
-        print("Only 15 characters allowed in Username")
+    elif len(user_name) < 3 or len(user_name) > 15 :
+        print("Only 3 - 15 characters allowed in Username")
         return
     
     else:
@@ -48,15 +49,19 @@ def create_acc():
 
     user_pwd = input("Password : ")    
 
-    if user_pwd == '' or user_pwd.count(" ") == len(user_pwd):
+    if user_pwd == '':
         print('User Password required !!!')
-    
+
+    elif user_pwd.count(" ") != 0:
+        print("\nPassword can't have space!!!")
+
     elif len(user_pwd) < 4 or len(user_pwd) > 12:
         print("\nPassword must have 4 - 12 characters !!!")
     
     else:
         try:
             with open(passwords_file, 'a') as file:
+                # Encrypt and store password
                 encrypt_pwd = master_key.encrypt(user_pwd.encode()).decode()
                 file.write(f"\n {user_name}  |  {encrypt_pwd}" )
             print("\nUsername with Password saved Successfully.")
@@ -88,7 +93,8 @@ def view_data():
                     continue
 
                 data = line.rstrip()
-                user_name, user_pwd = data.split(" | ")
+                user_name, user_pwd = data.split("  |  ")
+                # Decrypt and read password
                 decrypt_pwd = master_key.decrypt(user_pwd.encode()).decode()
 
                 # Padding with " ", if length < 12
@@ -96,9 +102,9 @@ def view_data():
                     decrypt_pwd = decrypt_pwd + " "
 
                 if line_number < 12:
-                    print(f"| {line_number - 2}.  | {user_name}  |   {decrypt_pwd}  |")
+                    print(f"| {line_number - 2}.  |  {user_name}  |   {decrypt_pwd}  |")
                 else:
-                    print(f"| {line_number - 2}. | {user_name}  |   {decrypt_pwd}  |")
+                    print(f"| {line_number - 2}. |  {user_name}  |   {decrypt_pwd}  |")
 
                 line_number += 1
             print("----------------------------------------------")
