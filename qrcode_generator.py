@@ -1,5 +1,6 @@
 import qrcode
 import re
+import os
 
 forbidden_chars = r'[\/:*?"<>|]'
 
@@ -41,12 +42,20 @@ def generate_qrcode(details):
         
         img = qr.make_image(fill_color="black", back_color="white")
         
-        image = "QRCodes/" + details[2] + details[3]
-        img.save(image)
+        image_name = "QRCodes/" + details[2] + details[3]
+
+        counter = 1
+        while os.path.exists(image_name):
+            image_name = f"QRCodes/{details[2]}_{counter}{details[3]}"
+            counter += 1
+
+        img.save(image_name)
+
+        return(image_name)
     except:
         print("\nOops! There was an error in creating QR.\n")
         exit()
 
-generate_qrcode(details)
+image = generate_qrcode(details)
 
-print("\nQR code created successfully!\n")
+print(f"\n\"{image[8:]}\" QR code created successfully!\n")
