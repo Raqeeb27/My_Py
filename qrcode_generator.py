@@ -57,22 +57,36 @@ def qr_gen(input_text, error_correction):
 # Function to get QR Image extension type
 def extension_menu():
     
-    extension_type = input("\nEnter the image file extension for your QRCode\n 1. JPEG    2. JPG    3. PNG\n\n --> ").lower()
+    extension_type = input("\nEnter the image file extension for your QRCode\n 1. JPEG    2. JPG    3. PNG\n 4. GIF     5. TIFF   6. BMP\n\n --> ").lower()
+    image_format = "JPEG"
 
-    if extension_type in ['1','jpeg']:
+    if extension_type in ['1','jpeg','']:
         extension = '.jpeg'
     
     elif extension_type in ['2','jpg']:
         extension = '.jpg'
 
-    elif extension_type in ['3','png','']:
+    elif extension_type in ['3','png']:
         extension = '.png'
+        image_format = "PNG"
+
+    elif extension_type in ['4','gif']:
+        extension = '.gif'
+        image_format = "GIF"
+
+    elif extension_type in ['5','tiff']:
+        extension = '.tiff'
+        image_format = "TIFF"
+
+    elif extension_type in ['6','bmp']:
+        extension = '.bmp'
+        image_format = "BMP"
 
     else:
         print("\nInvalid extension!!! Please select from the above options\n")
         exit(1)
     
-    return extension
+    return extension, image_format
 
 
 ## --------------------------------------------------------------------------
@@ -97,7 +111,7 @@ def generate_qrcode():
             return
         
         # Get the extension type
-        extension = extension_menu()
+        extension, image_format = extension_menu()
         
         qr_image_path =  os.path.join(QRCODES_DIRECTORY_PATH, f"{filename}{extension}")
 
@@ -108,12 +122,12 @@ def generate_qrcode():
             counter += 1
 
         # Save the QR Code
-        qr_image.save(qr_image_path)
+        qr_image.save(qr_image_path, format=image_format)
 
         return qr_image_path
 
-    except:
-        print("\nOops! There was an error in creating QR.\n")
+    except Exception as e:
+        print(f"\nOops! There was an error in creating QR.\n{e}\n")
         exit(1)
 
 
