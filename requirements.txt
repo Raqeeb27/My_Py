@@ -1,5 +1,5 @@
 colorama
-magic
+# magic
 requests
 bs4
 matplotlib
@@ -7,3 +7,4 @@ cryptography
 qrcode
 Pillow
 pyautogui
+# win10toast
