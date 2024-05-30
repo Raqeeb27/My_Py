@@ -1,0 +1,9 @@
+colorama
+magic
+requests
+bs4
+matplotlib
+cryptography
+qrcode
+Pillow
+pyautogui
