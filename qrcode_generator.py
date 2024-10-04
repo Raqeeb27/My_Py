@@ -1,5 +1,9 @@
+try:
+    import qrcode
+except ImportError:
+    print("This script requires the 'qrcode' module.\nPlease install it using 'pip install qrcode' and try again.")
+    exit(1)
 import os
-import qrcode
 import re
 
 
@@ -94,6 +98,12 @@ def extension_menu():
 def generate_qrcode():
     # Get input text from the user
     input_text = get_text()
+    
+    # QR codes have four error correction levels, or error correction rates, that determine how much data can be restored if the code is damaged or dirty:
+    # Level L (Low): 7% error correction rate, up to 7% damage
+    # Level M (Medium): 15% error correction rate, up to 15% damage
+    # Level Q (Quartile): 25% error correction rate, up to 25% damage
+    # Level H (High): 30% error correction rate, up to 30% damage 
 
     # Get the QR Error Correction Level
     error_correction = input("\nSelect Error Correction level (Low-L, Medium-M, Quartile-Q, High-H): ").upper()
