@@ -15,7 +15,7 @@ def get_images_from_html(html_content, base_url):
 
     return image_urls
 
-url = "https://epaper.munsifdaily.com/01_02_2024_m2_04/"
+url = "https://"  # Enter URL
 response = requests.get(url)
 html_content = response.text
 
