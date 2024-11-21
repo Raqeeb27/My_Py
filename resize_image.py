@@ -34,7 +34,7 @@ def main():
 
         output_directory = os.path.dirname(input_path)
 
-        output_filename = f'new_{width}x{height}{extension}'
+        output_filename = f'new_{width}x{height}.{extension}'
         output_path = os.path.join(output_directory, output_filename)
 
         resize_image(input_path, output_path, width, height, extension)
