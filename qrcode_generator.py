@@ -117,7 +117,7 @@ def generate_qrcode():
 
         filename = input("\nEnter the filename for the QR code image: ")
         if re.search(FORBIDDEN_CHARS, filename):
-            print("\nInvalid filename! QR code creation failed.\nFilename can't contain \/:*?\"<>| symbols\n")
+            print("\nInvalid filename! QR code creation failed.\nFilename can't contain \\/:*?\"<>| symbols\n")
             return
         
         # Get the extension type
