@@ -19,10 +19,10 @@ if my_os == "Windows":
     os.system(clear_Command)
 elif my_os == "Linux" or "Darwin":
     clear_Command = 'clear'
-    os.system(clear_Command)    
+    os.system(clear_Command)
 
 
-def calcultor(): 
+def calcultor():
 
     print(f'{yellow}{bright}Choose between the following: {reset}\n')
 
@@ -30,7 +30,7 @@ def calcultor():
         f'{cyan}1. Molecular weight\t\t2. Kinetic energy\t\t3. Heat engine(Efficiency)\n4. Hypotenuse'
         '\t\t\t5. Circumference\t\t6. Square Root\n7. Cube Root\t\t\t8. Logarithm\t\t\t9. Exponent\n10. Addition'
         f'\t\t\t11. Subtraction\t\t\t12. Multiplication\n13. Division\t\t\t14. Sin\t\t\t\t15. Cos\n16. Tan\t\t\t\t17. Notdefined\t\t\t18. Exit{reset}' + f'{blue}{bright}\n\n----> {reset}')
-    
+
     if user_input == '1':
         print(f"{yellow}{bright}------ Molecular weight ------{reset}\n")
         print('Please provide the molecule details...:\n')
@@ -40,7 +40,7 @@ def calcultor():
             h = ((f * 12.01) + (g * 1.01))
             print(f"\nThe Molecular Weight is:{bright}{light_cyan} %.3f" % h, end=f"{reset}")
         except ValueError:
-            print("\nCarbon and Hydrogen atoms should be a Positive Integer value")         
+            print("\nCarbon and Hydrogen atoms should be a Positive Integer value")
 
     elif user_input == '2':
         print(f"{yellow}{bright}------ Kinetic energy ------{reset}\n")
@@ -73,7 +73,7 @@ def calcultor():
             c = hypot(a, b)
             print(f"\nThe Length of the Hypotenuse is:{bright}{light_cyan} %.2f" % c, end=f"{reset}")
         except ValueError:
-            print("Enter Positive Length of Triangle side")            
+            print("Enter Positive Length of Triangle side")
 
     elif user_input == '5':
         print(f"{yellow}{bright}------ Circumference ------{reset}\n")

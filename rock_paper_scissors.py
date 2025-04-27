@@ -32,20 +32,20 @@ def play_round():
     user_input = input(
         f"\n{yellow}{bright}" + f" Player ".center(22, "-") + f"{reset}{cyan}\n Choose from the following: \n\'Rock\'🪨  (r) , \'Paper\'📃 (p) , \'Scissors\'✂️  (s){reset}   ['q' to Quit]\n\n{blue} ---> {reset}").strip().title()
     print()
-    
+
     if user_input in ['Q']:
         return "Q", None, None
-    
+
     if user_input not in game_choices:
         return None, None, None
-        
+
     if user_input in ['R', 'Rock']:
         user_choice = "Rock"
     elif user_input in ['P', 'Paper']:
         user_choice = "Paper"
     elif user_input in ['S', 'Scissors']:
         user_choice = "Scissors"
-    
+
     # Define which choice beats which
     beats = {
         'Rock': 'Scissors',
@@ -56,7 +56,7 @@ def play_round():
     # Random choice by computer
     computer_choice = choice(["Rock", "Paper", "Scissors"])
     print(f"{green}Player's  choice : {magenta}{user_choice}\n{green}Computer's choice: {magenta}{computer_choice}")
-        
+
     if computer_choice == user_choice:
         sleep(0.5)
         print(f"\n{bright}{magenta}||| It's a Draw ||| 😕{reset}")
@@ -78,7 +78,7 @@ def display_scoreboard(player_score, computer_score, draw_count):
     """
     Display the final scoreboard.
 
-    Prints the final scores of the player, the computer, 
+    Prints the final scores of the player, the computer,
     and the number of draws in a neatly formatted table.
 
     Parameters:
@@ -94,14 +94,14 @@ def display_scoreboard(player_score, computer_score, draw_count):
     print("----------------------------------")
     print(f"|{magenta}{str(player_score).center(10)}{cyan}|{yellow}{str(computer_score).center(12)}{cyan}|{green}{str(draw_count).center(8)}{cyan}|")
     print(f"----------------------------------{reset}")
-    
+
 
 def main():
     """Main function to run the Rock, Paper, Scissors game."""
     print(f"\n{magenta}{bright}" + f" ROCK - PAPER - SCISSORS ".center(50, "*"))
     print(f"{magenta}{bright}" + f" NEW GAME ".center(50, "*"))
     player_score, computer_score, draw_count = 0, 0, 0
-    
+
     while True:
         player_win, computer_win, draw = play_round()
         if player_win is None:
@@ -114,11 +114,11 @@ def main():
             sleep(0.5)
             display_scoreboard(player_score, computer_score, draw_count)
             break
-        
+
         player_score += player_win
         computer_score += computer_win
         draw_count += draw
-        
+
         sleep(0.5)
         play_again = input(f"{blue}\nDo you want to play again (y/n) [default: y]: ").strip().lower()
         if play_again in ["", "y", "yes"]:

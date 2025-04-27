@@ -7,7 +7,7 @@ from cryptography.fernet import Fernet
 
 def generate_key():
     try:
-        key = Fernet.generate_key()    
+        key = Fernet.generate_key()
         with open(key_file,'wb') as file :
             file.write(key)
     except:
@@ -37,17 +37,17 @@ def create_acc():
     if user_name == '' :
         print('Username required !!!')
         return
-        
+
     elif len(user_name) < 3 or len(user_name) > 15 :
         print("Only 3 - 15 characters allowed in Username")
         return
-    
+
     else:
         # Padding with " ", if length < 15
         while len(user_name) < 15:
             user_name = user_name + " "
 
-    user_pwd = input("Password : ")    
+    user_pwd = input("Password : ")
 
     if user_pwd == '':
         print('User Password required !!!')
@@ -57,7 +57,7 @@ def create_acc():
 
     elif len(user_pwd) < 4 or len(user_pwd) > 12:
         print("\nPassword must have 4 - 12 characters !!!")
-    
+
     else:
         try:
             with open(passwords_file, 'a') as file:
@@ -81,7 +81,7 @@ def view_data():
             if len(lines) < 3:
                 print("\nNo Data !!!")
                 return
-            
+
             # Structred Display
             print("\n----------------------------------------------")
             print("|S.No.|      Username      |     Password    |\n----------------------------------------------")
@@ -156,7 +156,7 @@ if (not os.path.exists(passwords_file)) or os.path.getsize(passwords_file) == 0:
     except:
         print("\nError in Creating passwords.txt file !!!\n")
         exit()
-    
+
 ##------------------------------------------------------------------------
 # Generate Key_file
 

@@ -23,12 +23,12 @@ reset = Style.RESET_ALL
 
 def calculator():
     """Displays the calculator menu and processes user input."""
-    
+
     print(f'{yellow}{bright}\n' + f' SIMPLE CALCULATOR '.center(40, "-") + f'{reset}\n')
 
     user_input = input(
         f'{cyan}1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exit' + f'{blue}{bright}\n\n----> {reset}')
-    
+
     if user_input == '1':
         perform_calculation('Addition', '+')
     elif user_input == '2':
@@ -47,19 +47,19 @@ def calculator():
 
 def perform_calculation(operation, operator):
     """Performs the specified arithmetic operation."""
-    
+
     print(f"{yellow}{bright}\n------ {operation} ------{reset}\n")
     try:
         first_operand = float(input('Enter first number: '))
         second_operand = float(input('Enter second number: '))
-        
+
         result = f'{first_operand} {operator} {second_operand}'
-        
+
         if first_operand.is_integer() and second_operand.is_integer() and operator != '/':
             print(f"\n{green}Result:\n{yellow}{int(first_operand)} {operator} {int(second_operand)} = {bright}{cyan}{int(eval(result))} {reset}")
         else:
             print(f"\n{green}Result:\n{yellow}{first_operand} {operator} {second_operand} = {bright}{cyan}%.2f {reset}" %eval(result))
-            
+
     except ZeroDivisionError:
         print(f'\n{bright}{red}Cannot divide by zero!!!{reset}')
     except ValueError:

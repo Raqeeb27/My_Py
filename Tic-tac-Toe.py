@@ -29,7 +29,7 @@ while attempts < 9:
                 break
     except:
         print("\nInvalid Position \nSelect position from 0 - 8\n")
-        continue    
+        continue
     attempts += 1
 
 if attempts >= 9:

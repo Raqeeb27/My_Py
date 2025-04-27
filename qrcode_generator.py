@@ -17,7 +17,7 @@ def get_text():
 
     text_lines = []
     enter_pressed = 0
-    
+
     while True:
         line = input()
         if not line:
@@ -51,7 +51,7 @@ def qr_gen(input_text, error_correction):
 
     qr.add_data(input_text)
     qr.make(fit=True)
-    
+
     qr_image = qr.make_image(fill_color="black", back_color="white")
 
     return qr_image
@@ -60,13 +60,13 @@ def qr_gen(input_text, error_correction):
 ## --------------------------------------------------------------------------
 # Function to get QR Image extension type
 def extension_menu():
-    
+
     extension_type = input("\nEnter the image file extension for your QRCode\n 1. JPEG    2. JPG    3. PNG\n 4. GIF     5. TIFF   6. BMP\n\n --> ").lower()
     image_format = "JPEG"
 
     if extension_type in ['1','jpeg','']:
         extension = '.jpeg'
-    
+
     elif extension_type in ['2','jpg']:
         extension = '.jpg'
 
@@ -89,7 +89,7 @@ def extension_menu():
     else:
         print("\nInvalid extension!!! Please select from the above options\n")
         exit(1)
-    
+
     return extension, image_format
 
 
@@ -98,7 +98,7 @@ def extension_menu():
 def generate_qrcode():
     # Get input text from the user
     input_text = get_text()
-    
+
     # QR codes have four error correction levels, or error correction rates, that determine how much data can be restored if the code is damaged or dirty:
     # Level L (Low): 7% error correction rate, up to 7% damage
     # Level M (Medium): 15% error correction rate, up to 15% damage
@@ -110,7 +110,7 @@ def generate_qrcode():
     if error_correction not in ['L','M','Q','H']:
         print("\nInvalid Input! Please select from L, M, Q, H\nQR code creation failed.\n")
         exit(1)
-    
+
     try:
         # Generate QR Image
         qr_image = qr_gen(input_text, error_correction)
@@ -119,10 +119,10 @@ def generate_qrcode():
         if re.search(FORBIDDEN_CHARS, filename):
             print("\nInvalid filename! QR code creation failed.\nFilename can't contain \\/:*?\"<>| symbols\n")
             return
-        
+
         # Get the extension type
         extension, image_format = extension_menu()
-        
+
         qr_image_path =  os.path.join(QRCODES_DIRECTORY_PATH, f"{filename}{extension}")
 
         # Handle if QR Code Image has existing filename
@@ -142,7 +142,7 @@ def generate_qrcode():
 
 
 ### ===========================================================================
-## Main 
+## Main
 #
 if __name__ == "__main__":
 

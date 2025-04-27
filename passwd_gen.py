@@ -8,7 +8,7 @@ try:
 except ImportError:
     print("This script requires the 'colorama' module.\nPlease install it using 'pip install colorama' and try again.")
     exit(1)
-    
+
 import string
 from random import shuffle
 from secrets import choice
@@ -45,10 +45,10 @@ def generate_password(password_length, use_lower=False, use_upper=False, use_dig
     Returns:
     str: The generated password.
     """
-    
+
     char_pool = ''
     password = []
-    
+
     if use_lower:
         char_pool += LOWER_CHARS
         password.append(choice(LOWER_CHARS))
@@ -61,11 +61,11 @@ def generate_password(password_length, use_lower=False, use_upper=False, use_dig
     if use_special:
         char_pool += SPECIAL_CHARS
         password.append(choice(SPECIAL_CHARS))
-    
+
     if not char_pool:
         print(f"{red}\nNo character types selected for password generation.{reset}")
         exit(1)
-    
+
     # Add random characters to fill the rest of the password length
     password += [choice(char_pool) for _ in range(password_length - len(password))]
 
@@ -78,14 +78,14 @@ def generate_password(password_length, use_lower=False, use_upper=False, use_dig
 def main():
     print(f"\n{yellow}{bright}" + " PASSWORD GENERATOR ".center(40, "-") + f"{reset}")
     sleep(0.75)
-    
+
     try:
         password_length = int(input(f'\n{cyan}Enter the length of the password to be generated: {reset}').strip())
 
         if password_length < 4 or password_length > 256:
             print(f"\n{red}Password length must be between 4 and 256 characters.\nPlease try again.{reset}\n")
             exit(1)
-            
+
         print(f"{yellow}\n\nSelect character types to include in the password:")
         use_lower = input(f'{green}\nInclude lowercase letters (y/n) {blue}[default: y]: {reset}').strip().lower() in ['','y','yes']
         use_upper = input(f'{green}Include uppercase letters (y/n) {blue}[default: y]: {reset}').strip().lower() in ['','y','yes']

@@ -19,7 +19,7 @@ def main():
     if not os.path.exists(input_path):
         print("\nCan't find the specified file path\n")
         return
-    
+
     try:
         width = int(input('\nEnter the new width: '))
         height = int(input('Enter the new height: '))
