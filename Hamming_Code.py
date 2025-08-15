@@ -1,12 +1,14 @@
 from colorama import Fore as f, Style as s
 from time import sleep
 
+
 yellow, lyellow = f.YELLOW, f.LIGHTYELLOW_EX
 red, lred = f.RED, f.LIGHTRED_EX
 blue, lblue = f.BLUE, f.LIGHTBLUE_EX
 lcyan = f.LIGHTCYAN_EX
 dim, bright = s.DIM, s.BRIGHT
 reset, normal = s.RESET_ALL, s.NORMAL
+
 
 def parity_correct(i,error):
     print(f"{red}{dim}There is an Error in Parity Bit \'P{i}\'{reset}")
@@ -17,6 +19,7 @@ def parity_correct(i,error):
         parity_bits[f"P{i}"] = "0"
         error = 1
     return error
+
 
 orig_frame = input(
     f"{lyellow}{bright}\n----ERROR DETECTION AND ERROR CORRECTION----{normal}\n\n{dim}{lcyan}Enter the Hamming Code Frame (with greater than 7 digits):{reset} ")
@@ -29,8 +32,12 @@ if len(orig_frame) < 8 or len(orig_frame) > 16:
     print(f"\n{lred}{dim}Enter number of Digits between 8 t0 15{reset}")
     exit()
 
-parity_bits = {"P1": str(orig_frame[2 ** 0 - 1]), "P2": str(orig_frame[2 ** 1 - 1]), "P4": str(orig_frame[2 ** 2 - 1]),
-               "P8": str(orig_frame[2 ** 3 - 1])}
+parity_bits = {
+               "P1": str(orig_frame[2 ** 0 - 1]),
+               "P2": str(orig_frame[2 ** 1 - 1]),
+               "P4": str(orig_frame[2 ** 2 - 1]),
+               "P8": str(orig_frame[2 ** 3 - 1])
+               }
 
 print("\nParity bits are: ", parity_bits)
 for i in range(len(orig_frame)):
@@ -52,22 +59,23 @@ for i in range(1, 5):
         frame = [x for x in orig_frame[0:len(orig_frame):2]]
     elif i == 2:
         for i in range(len(orig_frame)):
-            if i == 0 or i == 3 or i == 4 or i == 7 or i == 8 or i == 11 or i == 12 or i == 15:
+            if i in [0, 3, 4, 7, 8, 11, 12, 15]:
                 continue
             frame.append(orig_frame[i])
         i = 2
     elif i == 3:
         for i in range(len(orig_frame)):
-            if i == 0 or i == 1 or i == 2 or i == 7 or i == 8 or i == 9 or i == 10 or i == 15:
+            if i in [0, 1, 2, 7, 8, 9, 10, 15]:
                 continue
             frame.append(orig_frame[i])
         i = 4
     elif i == 4:
         for i in range(len(orig_frame)):
-            if i == 0 or i == 1 or i == 2 or i == 3 or i == 4 or i == 5 or i == 6 or i == 15:
+            if i in [0, 1, 2, 3, 4, 5, 6, 15]:
                 continue
             frame.append(orig_frame[i])
         i = 8
+
     frame = "".join(frame)
     if eve_odd in ["ODD","O","0"]:
         if frame.count("1") % 2 == 0:
@@ -82,7 +90,7 @@ for i in range(1, 5):
 sleep(0.4)
 if error == 0:
     print(
-        f"{bright}{lcyan}The entered Frame ---{orig_frame[::-1]}--- has no error with the given parity \'{eve_odd}\'{reset}")
+        f"{bright}{lcyan}The entered Frame --- {orig_frame[::-1]} --- has no error with the given parity \'{eve_odd}\'{reset}")
     exit()
 
 print(f"\n{lblue}Corrected Parity Bits: {parity_bits}{reset}")
@@ -92,5 +100,6 @@ orig_frame[1] = parity_bits["P2"]
 orig_frame[3] = parity_bits["P4"]
 orig_frame[7] = parity_bits["P8"]
 orig_frame = "".join(orig_frame)
-sleep(0.4)
-print(f"\n{bright}{lcyan}Corrected Frame: ---{orig_frame[::-1]}---{reset}")
+
+sleep(0.7)
+print(f"\n{bright}{lcyan}Corrected Frame: --- {orig_frame[::-1]} ---{reset}")
