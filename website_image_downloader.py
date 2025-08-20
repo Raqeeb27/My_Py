@@ -12,10 +12,11 @@ try:
         os.makedirs(path)
 except:
     print(f"\nError in Creating Output directory\n")
-    exit(0)
+    exit(1)
 
+image_url = "ENTER IMAGE URL HERE"
+# Example: https://epaper.munsifdaily.com/wp-content/uploads/2024/02/02/02_02_2024_m2_04.jpg
 
-image_url = "https://epaper.munsifdaily.com/wp-content/uploads/2024/02/02/02_02_2024_m2_04.jpg"
 output_filename = "Output_Images\downloaded_image.jpg"
 
 headers = {
