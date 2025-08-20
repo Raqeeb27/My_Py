@@ -7,4 +7,5 @@ cryptography
 qrcode
 Pillow
 pyautogui
+pyshorteners
 # win10toast
