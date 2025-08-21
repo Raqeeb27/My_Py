@@ -1,5 +1,6 @@
 from time import sleep
 
+
 def countdown(timer):
 	print()
 	while timer:
@@ -11,12 +12,19 @@ def countdown(timer):
 		timer -= 1
 	print(f'--00:00:00--', end="\r")
 
-print("\n" + " Countdown ".center(19, "-"))
-input_time = int(input("Enter the time in seconds: "))
 
+print("\n" + " Countdown ".center(19, "-"))
 try:
-	countdown(input_time)
-except KeyboardInterrupt:
+    input_time = int(input("\nEnter the time in seconds: "))
+    if input_time <= 0:
+        print("\nEnter Positive integer!\n")
+        exit(1)
+    input("\nPress Enter to start the timer")
+    countdown(input_time)
+except (ValueError, OSError) as e:
+    print(f"\n\nError: {e}")
+    exit(1)
+except (KeyboardInterrupt, EOFError):
     print("\n\nKeyboard Interrupt!!!\nExiting...\n")
     exit(1)
 
