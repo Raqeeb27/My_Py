@@ -1,13 +1,16 @@
-import sys
+from platform import release, system
 from time import sleep
-from platform import system, release
+import sys
 
 try:
     from pyautogui import click, hotkey, press, size
 except ImportError:
-    print("This script requires the 'pyautogui' module.\nPlease install it using 'pip install pyautogui' and try again.")
+    print("\nError:\nThis script requires the 'pyautogui' module.\n\nPlease install it using 'pip install pyautogui' and try again.\n")
     sys.exit(1)
 
+if system() != "Windows":
+    print("\nError:\nThis script is designed to work on Windows systems only.\n")
+    sys.exit(1)
 
 # Get screen width and height
 screen_width, screen_height = size()
